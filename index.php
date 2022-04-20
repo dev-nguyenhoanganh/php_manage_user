@@ -1,25 +1,18 @@
 <?php
-  function coreAutoload($class) {
-    $root = '../';
-    $prefix = 'Core.';
-  }
-
-  // remove prefix \
-  $classWithoutPrefix = preg_replace('/^' . preg_quote($prefix) . '/', '', $class);
-
-  $file = str_replace('\\', DIRECTORY_SEPARATOR, $classWithoutPrefix) . '.php';
-
-  $path = $root . $file;
-  if (file_exists($file)) {
-    require_once $path;
-  }
-
-  spl_autoload_register('coreAutoLoad');
-
+  require './framework/autoload/Psr4AutoloaderClass.php';
+  
+  $autoload = new Framework\Autoload\Psr4AutoloaderClass();
+  $autoload->register();
+  $autoload->addNamespace('App\Routes', './app/routes');
+  
   use App\Routes\Router;
   use App\Routes\Request;
-
   $router = new Router(new Request);
 
-  
-?>
+  $router->get('/', function() {
+    return 'hello word';
+  });
+
+  $router->get('/abc', function() {
+    return 'abc';
+  });
