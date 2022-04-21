@@ -11,7 +11,7 @@
 
     private function loadServerParam() {
       foreach($_SERVER as $key => $value) {
-        $this->{ $this->toCamelCase($key) }  = $value;;
+        $this->{ $this->toCamelCase($key) }  = $value;
       }
     }
 
@@ -36,7 +36,7 @@
         foreach($_POST as $key => $value) {
           $body[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
         }
-
+        var_dump($body);
         return $body;
       }
     }

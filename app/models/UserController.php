@@ -2,21 +2,39 @@
 class User {
   private $username;
   private $age;
-  private $dateOfBirth;
+  private $birthday;
   private $avatar;
 
-  public function __get($property) {
-    if (property_exists($this, $property)) {
-      return $this->$property;
-    }
+  public function getUsername() {
+    return $this->username;
   }
 
-  public function __set($property, $value) {
-    if (property_exists($this, $property)) {
-      $this->$property = $value;
-    }
+  public function getAge() {
+    return $this->age;
+  }
 
-    return $this;
+  public function getBirthday() {
+    return $this->birthday;
+  }
+
+  public function getAvatar() {
+    return $this->avatar;
+  }
+
+  public function setUsername(string $username) {
+    $this->username = $username;
+  }
+
+  public function setAge(string $age) {
+    $this->age = $age;
+  }
+
+  public function setBirthday(string $birthday) {
+    $this->birthday = $birthday;
+  }
+
+  public function setAvatar(string $avatar) {
+    $this->avatar = $avatar;
   }
 }
 
