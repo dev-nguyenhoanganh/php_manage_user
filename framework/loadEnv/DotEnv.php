@@ -1,6 +1,6 @@
 <?php
 
-namespace Framework\Autoload;
+namespace Framework\LoadEnv;
 
 class DotEnv {
   protected $path;

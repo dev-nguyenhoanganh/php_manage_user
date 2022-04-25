@@ -1,10 +1,18 @@
 <?php
-namespace App\Dao;
+use App\Utils\Constant;
 
-interface BaseDao {
-  public function openConnection();
-  public function closeConnection();
-  public function getConnection();
-  public function setConnection();
-  public function handleTransaction();
+class BaseDao {
+  private $conn;
+
+  public function __construct() {
+
+  }
+
+  public function openConnection() {
+    $this->conn = new mysqli(getenv('DB_HOST'), getenv('DB_USER'), getenv('DB_PASS'));
+    if ($this->conn->connect_error) {
+      die('Connection failed: ' . $this->conn->connect_error);
+    }
+
+  }
 }
