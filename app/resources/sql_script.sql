@@ -21,16 +21,18 @@ CREATE TABLE `tbl_user` (
   `login_name` VARCHAR(15) NOT NULL,
   `password` VARCHAR(50) NOT NULL,
   `username` VARCHAR(255) NOT NULL,
-  `birthday` DATE NOT NULL,
+  `birthday` DATE,
   `rule` INT(1) NOT NULL,
   `salt` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`user_id`)
+  `admin_id` INT(11),
+  PRIMARY KEY (`user_id`),
+  FOREIGN KEY(`admin_id`) REFERENCES `tbl_user`(`user_id`)
 );
 
 INSERT INTO 
    `tbl_user`(`user_id`, `login_name`, `password`, `username`, `birthday`, `rule`, `salt`)
 VALUES
 # (`user_id`, `login_name`, `password`, `username`, `birthday`, `rule`, `salt`)
-  (0, 1, 'admin', '0000', 'Nguyễn Hoàng Anh', '1998/07/31', 0, 'salt')
+  (0, 'admin', '0000', 'Nguyễn Hoàng Anh', '1998/07/31', 0, 'salt')
 ;
 

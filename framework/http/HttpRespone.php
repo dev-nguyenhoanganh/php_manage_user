@@ -5,21 +5,33 @@ use Framework\Http\BaseInterface\IHttpRespone;
 /**
  * [Description HttpResponse]
  */
-class HttpResponse implements IHttpRespone {
-  
+class HttpRespone implements IHttpRespone {
+  private $view_dir; 
+
+  public function __construct() {
+    $this->view_dir = dirname(dirname(__DIR__)) . '\app\views\\';
+  }
+
   /**
    * @param mixed $path
    * @param mixed $param
    * 
    * @return [type]
    */
-  function render($path, $param) {
-    ob_start();
-    include $path;
-    $htmlContent = ob_get_contents();
-    ob_end_clean();
+  function render($path, $param = null) {
+    $htmlContent = '';
 
+    ob_start();
+    $path = $this->view_dir . $path;
+    
+    if (file_exists($path)) {
+      include $path;
+      $htmlContent = ob_get_contents();
+    } else {
+      
+    }
+    
+    ob_end_clean();
     print $htmlContent;
-    return;
   }
 }

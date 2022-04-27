@@ -10,26 +10,26 @@
     <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" href="/php_basic">Home</a>
+          <a class="nav-link active" href="/manage_user">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/php_basic/views/user/listUser.php">View All User</a>
+          <a class="nav-link" href="/manage_user/listUser">View All User</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="//php_basic/views/user/newUser.php">Add New User</a>
+          <a class="nav-link" href="/manage_user/new-user">Add New User</a>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
         <?php if ($currentUser) { ?> 
           <li class="nav-item">
-            <a href="/logout" class="nav-link">Logout</a>
+            <a href="/manage_user/logout" class="nav-link">Logout</a>
           </li>
           <?php } else { ?> 
           <li class="nav-item">
-            <a href="/php_basic/views/user/login.php" class="nav-link">Login</a>
+            <a href="/manage_user/login" class="nav-link">Login</a>
           </li>
           <li class="nav-item">
-            <a href="/register" class="nav-link">Register</a>
+            <a href="/manage_user/register" class="nav-link">Register</a>
           </li>
         <?php } ?> 
       </ul>

@@ -28,7 +28,6 @@ class HttpRequest implements IHttpRequest {
       foreach($_POST as $key => $value) {
         $body[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
       }
-      var_dump($body);
       return $body;
     }
   }
