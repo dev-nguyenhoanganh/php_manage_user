@@ -34,4 +34,9 @@ class HttpRespone implements IHttpRespone {
     ob_end_clean();
     print $htmlContent;
   }
+
+  public function redirect($path) {
+    header("Location: $path", true, 301);
+    exit();
+  }
 }

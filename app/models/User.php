@@ -1,6 +1,7 @@
 <?php
 class User {
   private $userId;
+  private $loginName;
   private $username;
   private $age;
   private $birthday;
@@ -11,6 +12,10 @@ class User {
 
   public function getUserId() {
     return $this->userId;
+  }
+
+  public function getLoginName() {
+    return $this->loginName;
   }
 
   public function getUsername() {
@@ -43,6 +48,10 @@ class User {
 
   public function setUserId(int $userId) {
     $this->userId = $userId;
+  }
+
+  public function setLoginName(string $loginName) {
+    $this->loginName = $loginName;
   }
 
   public function setUsername(string $username) {

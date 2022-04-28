@@ -1,9 +1,9 @@
 <?php
 
-use Framework\Http\HttpRequest;
-use App\Controllers\UserController;
 use App\Routes\Router;
+use Framework\Http\HttpRequest;
 use Framework\Http\HttpRespone;
+use App\Controllers\UserController;
 
 $req = new HttpRequest();
 $resp = new HttpRespone();

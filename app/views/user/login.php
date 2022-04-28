@@ -18,10 +18,10 @@
 
   <div class="container c-form-container">
     <h1 class="text-center">Login</h1>
-    <form action="/login" method="POST" class="validated-form" novalidate>
+    <form action="/manage_user/login" method="POST" class="validated-form" novalidate>
       <div class="mb-3">
-        <label class="form-label" for="username">Username</label>
-        <input class="form-control" type="text" id="username" autofocus name="username" required>
+        <label class="form-label" for="loginName">Username</label>
+        <input class="form-control" type="text" id="loginName" autofocus name="loginName" required>
       </div>
       <div class="mb-3">
         <label class="form-label" for="password">Password</label>
