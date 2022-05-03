@@ -52,8 +52,4 @@ class Router {
 
     call_user_func_array($method, array($this->request));
   }
-
-  function __destruct() {
-    $this->resolve();
-  }
 }

@@ -17,7 +17,7 @@ class UserService {
     if (is_null($admin)) {
       return false;
     } else {
-      return $admin['password'] == $password;
+      return $admin[0]['password'] == $password;
     }
   }
 }

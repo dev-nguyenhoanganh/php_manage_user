@@ -13,7 +13,7 @@
           <a class="nav-link active" href="/manage_user">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/manage_user/listUser">View All User</a>
+          <a class="nav-link" href="/manage_user/listuser">View All User</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/manage_user/new-user">Add New User</a>

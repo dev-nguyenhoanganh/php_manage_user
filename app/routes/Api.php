@@ -19,6 +19,10 @@ $router->post('/manage_user/login', function() use (&$req, &$resp, &$userControl
   $userController->login($req, $resp);
 });
 
+$router->get('/manage_user/listuser', function() use (&$req, &$resp, &$userController) {
+  $userController->showListUser($req, $resp);
+});
+
 $router->get('/manage_user', function() use(&$resp) {
   $resp->render('index.php');
 });

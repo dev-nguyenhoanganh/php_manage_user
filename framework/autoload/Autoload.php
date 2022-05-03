@@ -14,5 +14,7 @@ $autoload->addNamespace('Framework\Http\BaseInterface', './framework/http/baseIn
 $autoload->addNamespace('Framework\Autoload'          , './framework/autoload');
 $autoload->addNamespace('Framework\LoadEnv'           , './framework/loadEnv');
 $autoload->addNamespace('App\Service'                 , './app/service');
+$autoload->addNamespace('App\Dao'                     , './app/dao');
+$autoload->addNamespace('App\Utils'                   , './app/utils');
 
 (new DotEnv(dirname(dirname(__DIR__)) . '\.env'))->load();
