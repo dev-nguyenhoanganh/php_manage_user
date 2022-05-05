@@ -19,7 +19,11 @@ $router->post('/manage_user/login', function() use (&$req, &$resp, &$userControl
   $userController->login($req, $resp);
 });
 
-$router->get('/manage_user/listuser', function() use (&$req, &$resp, &$userController) {
+$router->get('/manage_user/logout', function() use (&$req, &$resp, &$userController) {
+  $userController->logout($req, $resp);
+});
+
+$router->get('/manage_user/list-user', function() use (&$req, &$resp, &$userController) {
   $userController->showListUser($req, $resp);
 });
 

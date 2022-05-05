@@ -1,5 +1,5 @@
 <?php 
-  $currentUser = '';
+  $isAdminExist = array_key_exists('adminId', $_SESSION);
 ?>
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
@@ -13,14 +13,14 @@
           <a class="nav-link active" href="/manage_user">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/manage_user/listuser">View All User</a>
+          <a class="nav-link" href="/manage_user/list-user">View All User</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/manage_user/new-user">Add New User</a>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
-        <?php if ($currentUser) { ?> 
+        <?php if ($isAdminExist) { ?> 
           <li class="nav-item">
             <a href="/manage_user/logout" class="nav-link">Logout</a>
           </li>

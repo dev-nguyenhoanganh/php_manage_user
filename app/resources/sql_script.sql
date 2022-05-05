@@ -24,20 +24,21 @@ CREATE TABLE `tbl_user` (
   `birthday` DATE,
   `rule` INT(1) NOT NULL,
   `salt` VARCHAR(255) NOT NULL,
+  `avatar` VARCHAR(255),
   `admin_id` INT(11),
   PRIMARY KEY (`user_id`),
   FOREIGN KEY(`admin_id`) REFERENCES `tbl_user`(`user_id`)
 );
 
 INSERT INTO 
-   `tbl_user`(`user_id`, `login_name`, `password`, `username`, `birthday`, `rule`, `salt`)
+   `tbl_user`(`user_id`, `login_name`, `password`, `username`, `birthday`, `rule`, `salt`, `admin_id`, `avatar`)
 VALUES
-# (`user_id`, `login_name`, `password`, `username`, `birthday`, `rule`, `salt`)
-# (0, 'admin', '0000', 'Nguyễn Hoàng Anh', '1998/07/31', 0, 'salt')
-  (0, 'aa', '0000', 'Nguyễn Văn A', '1998/07/31', 1, 'salt')
-  (0, 'bb', '0000', 'Nguyễn Văn B', '1998/07/31', 1, 'salt')
-  (0, 'cc', '0000', 'Nguyễn Văn C', '1998/07/31', 1, 'salt')
-  (0, 'dd', '0000', 'Nguyễn Văn D', '1998/07/31', 1, 'salt')
-  (0, 'ee', '0000', 'Nguyễn Văn E', '1998/07/31', 1, 'salt')
+# (`user_id`, `login_name`, `password`, `username`, `birthday`, `rule`, `salt`, `admin_id`, `avatar`)
+  (0, 'admin', '0000', 'Nguyễn Hoàng Anh', '1998/07/31', 0, 'salt', NULL, NULL)
+  (0, 'aa', '0000', 'Nguyễn Văn A', '1998/07/31', 1, 'salt', 1, '/manage_user/app/public/image/Baby%2001.png'),
+  (0, 'bb', '0000', 'Nguyễn Văn B', '1998/07/31', 1, 'salt', 1, '/manage_user/app/public/image/Baby%2002.png'),
+  (0, 'cc', '0000', 'Nguyễn Văn C', '1998/07/31', 1, 'salt', 1, '/manage_user/app/public/image/Child%2001.png'),
+  (0, 'dd', '0000', 'Nguyễn Văn D', '1998/07/31', 1, 'salt', 1, '/manage_user/app/public/image/Person%2001.png'),
+  (0, 'ee', '0000', 'Nguyễn Văn E', '1998/07/31', 1, 'salt', 1, '/manage_user/app/public/image/Person%2002.png')
 ;
 

@@ -3,7 +3,6 @@ class User {
   private $userId;
   private $loginName;
   private $username;
-  private $age;
   private $birthday;
   private $avatar;
   private $rule;
@@ -20,10 +19,6 @@ class User {
 
   public function getUsername() {
     return $this->username;
-  }
-
-  public function getAge() {
-    return $this->age;
   }
 
   public function getBirthday() {
@@ -56,10 +51,6 @@ class User {
 
   public function setUsername(string $username) {
     $this->username = $username;
-  }
-
-  public function setAge(string $age) {
-    $this->age = $age;
   }
 
   public function setBirthday(string $birthday) {

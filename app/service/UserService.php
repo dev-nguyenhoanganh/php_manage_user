@@ -13,11 +13,18 @@ class UserService {
 
   public function checkLogin($loginName, $password) { 
     $admin = $this->userDao->getAdminByLogin($loginName);
-
+    
     if (is_null($admin)) {
       return false;
     } else {
-      return $admin[0]['password'] == $password;
+      $_SESSION['adminId'] = $admin[0]['user_id'];
+      $_SESSION['username'] = $admin[0]['username'];
+
+      return $admin[0]['password'] === $password;
     }
+  }
+
+  public function getListUser($adminId) {
+    return $this->userDao->getListUser($adminId);
   }
 }

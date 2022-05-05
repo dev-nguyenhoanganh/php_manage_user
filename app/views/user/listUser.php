@@ -1,5 +1,7 @@
 <?php
   define('CSS_PATH', '/manage_user/app/public/css/');
+
+
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +18,28 @@
   <?php include(dirname(__DIR__) . '\partial\navbar.php'); ?>
   
   <h1 class="text-center mt-3">List User</h1>
+
+  <div class="container mt-3">
+    <table class="list-user table-striped">
+      <thead>
+        <tr>
+          <th scope="col">No.</th>
+          <th scope="col">User</th>
+          <th scope="col">Birthday</th>
+          <th scope="col">Profile Picture</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php  ?>
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   
   <?php include(dirname(__DIR__) . '\partial\footer.php'); ?>
 </body>

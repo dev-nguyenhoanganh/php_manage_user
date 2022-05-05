@@ -24,7 +24,6 @@ class BaseDao {
         \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC        // make the default fetch be an associative array
       ];
       $this->conn = new \PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass, $option);
-      echo "Connected successfully";
     } catch(\PDOException $e) {
       echo "Connection failed: " . $e->getMessage();
     }
