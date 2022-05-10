@@ -42,3 +42,8 @@ VALUES
   (0, 'ee', '0000', 'Nguyễn Văn E', '1998/07/31', 1, 'salt', 1, '/manage_user/app/public/image/Person%2002.png')
 ;
 
+
+CREATE USER 'hoanganh'@'localhost' IDENTIFIED BY '0000';
+GRANT ALL PRIVILEGES ON *.* TO 'hoanganh'@'localhost' WITH GRANT OPTION;
+
+php bin/magento admin:user:create --admin-user=hoanganh1 --admin-password=Magento2 --admin-email=hello1@mageplaza.com --admin-firstname=Mageplaza --admin-lastname=Family

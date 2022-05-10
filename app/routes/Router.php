@@ -29,6 +29,7 @@ class Router {
     if ($result === '') {
       return '/';
     }
+    $result = explode("?", $result)[0];
     return $result;
   }
 

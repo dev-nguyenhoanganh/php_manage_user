@@ -34,11 +34,11 @@ hr {
 
 .list-user {
   color: inherit;
-  border: 2px solid #fff;
-  border-radius: 1em;
+  border-radius: 0.5em;
   border-collapse: collapse;
   overflow: hidden;
   width: 100%;
+  margin-bottom: 40px;
 }
 
 .list-user th, 
@@ -50,6 +50,10 @@ hr {
 .list-user th {
   background-color: #77a0eb85;
 }
+.list-user tbody tr:last-child td,
+.list-user tbody tr:last-child th {
+  border-bottom: none;
+}
 
 .list-user th:first-child {
   width: 50px;
@@ -57,4 +61,15 @@ hr {
 }
 .list-user tbody tr:nth-of-type(odd) {
   background-color: #41484a;
+}
+
+td.img-cell img {
+  width: auto;
+  height: 150px;
+  margin: 0 auto;
+  display: block;
+}
+
+.w-20 {
+  width: 20%;
 }

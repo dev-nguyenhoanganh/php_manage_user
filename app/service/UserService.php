@@ -27,4 +27,8 @@ class UserService {
   public function getListUser($adminId) {
     return $this->userDao->getListUser($adminId);
   }
+
+  public function getUserById($userId, $adminId) {
+    return $this->userDao->getUserById($userId, $adminId);
+  }
 }

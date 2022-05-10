@@ -19,17 +19,17 @@ class HttpRequest implements IHttpRequest {
    * @return [type]
    */
   public function getBody() {
+    $body = array();
     if ($this->requestMethod === HttpRequest::GET_METHOD) {
-      return;
-    }
-
-    if ($this->requestMethod === HttpRequest::POST_METHOD) {
-      $body = array();
+      foreach ($_GET as $key => $value) {
+        $body[$key] = filter_input(INPUT_GET, $key, FILTER_SANITIZE_SPECIAL_CHARS);
+      }
+    } elseif ($this->requestMethod === HttpRequest::POST_METHOD) {
       foreach($_POST as $key => $value) {
         $body[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
       }
-      return $body;
     }
+    return $body;
   }
 
   // ------------------------ Private Function ------------------------

@@ -1,0 +1,23 @@
+<?php 
+use App\Utils\Constant;
+use Framework\Http\HttpSession;
+
+?>
+
+<div class="mt-3">
+  <?php if (HttpSession::checkExistParam(Constant::SESS_SUCCESS_KEY)) {?> 
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <?= HttpSession::getAttribute(Constant::SESS_SUCCESS_KEY) ?> 
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <?php HttpSession::removeAttribute(Constant::SESS_SUCCESS_KEY) ?>
+  <?php } ?> 
+    
+  <?php if (HttpSession::checkExistParam(Constant::SESS_ERROR_KEY)) {?> 
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <?= HttpSession::getAttribute(Constant::SESS_ERROR_KEY) ?> 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <?php HttpSession::removeAttribute(Constant::SESS_ERROR_KEY) ?>
+  <?php } ?> 
+</div>

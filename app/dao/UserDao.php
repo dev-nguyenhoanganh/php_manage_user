@@ -11,6 +11,7 @@ class UserDao extends BaseDao {
   }
 
   public function getAdminByLogin($username) {
+    $user = null;
     try {
       $conn = $this->openConnection();
       $query = <<<QUERY
@@ -30,7 +31,6 @@ class UserDao extends BaseDao {
 
       $statement->execute($param);
       $user = $statement->fetchAll(\PDO::FETCH_ASSOC);
-      $user = (!$user) ? null : $user;
     } catch (\PDOException $e) {
       echo $e->getMessage();
     } finally {
@@ -43,20 +43,59 @@ class UserDao extends BaseDao {
     $listUser = null;
     try {
       $conn = $this->openConnection();
-      $query = <<< query
-        SELECT `login_name`, `username`, `birthday`
-        FROM `tbl_user`
-        WHERE `admin_id` = :adminId;
-      query;
-      $param = array( "adminId" => $adminId );
+      $query = <<<QUERY
+        SELECT 
+          `user_id`, `username`, `birthday`, `avatar`
+        FROM 
+          `tbl_user`
+        WHERE 
+          `admin_id` = :adminId AND `rule` = :rule;
+      QUERY;
+      $param = array( 
+        "adminId" => $adminId,
+        "rule"    => Constant::RULE_USER
+      );
       $statement = $conn->prepare($query);
+      $statement->execute($param);
       $listUser  = $statement->fetchAll(\PDO::FETCH_ASSOC);
 
     } catch (\PDOException $e) {
       echo $e->getMessage();
+    } finally {
+      $this->closeConnection();
     }
 
     return $listUser;
+  }
+
+  public function getUserById($userId, $adminId) {
+    $user = null;
+    try {
+      $conn = $this->openConnection();
+      $query = <<<QUERY
+        SELECT 
+          `user_id`, `username`, `birthday`, `avatar`
+        FROM 
+          `tbl_user`
+        WHERE 
+          `rule` = :rule AND `user_id` = :userId AND `admin_id` = :adminId;
+      QUERY;
+
+      $param = array(
+        "adminId" => $adminId,
+        "user_id" => $userId,
+        "rule"    => Constant::RULE_USER
+      );
+
+      $statement = $conn->prepare($query);
+      $statement->execute($param);
+      $user = $statement->fetchAll(\PDO::FETCH_ASSOC);
+    } catch (\PDOException $e) {
+      echo $e->getMessage();
+    } finally {
+      $this->closeConnection();
+    }
+    return $user;
   }
 }
 

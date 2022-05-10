@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Service\UserService;
 use App\Utils\Constant;
-use Framework\Http\HttpRespone;
+use Framework\Http\HttpSession;
 
 class UserController {
   private $userServ;
@@ -29,7 +29,8 @@ class UserController {
     if ($isValidUser) {
       $resp->redirect(Constant::URL_LIST_USER);
     } else {
-      $resp->render(Constant::DIR_VIEW_LOGIN, [ "errorMess"=>"Login name or password in-correct!" ]);
+      $_SESSION[Constant::SESS_ERROR_KEY] = Constant::ERR_MESS_LOGIN;
+      $resp->render(Constant::DIR_VIEW_LOGIN);
     }
   }
 
@@ -40,7 +41,7 @@ class UserController {
 
   public function showListUser($req, $resp) {
     if ($this->isAdminExist) {
-      $adminId = $_SESSION['adminId'];
+      $adminId = $_SESSION[Constant::SESS_ADMIN_ID];
       $listUser = $this->userServ->getListUser($adminId);
       $resp->render(Constant::DIR_VIEW_LIST_USER, $listUser);
     } else {
@@ -48,5 +49,16 @@ class UserController {
     }
   }
 
+  public function showUserDetail($req, $resp) {
+    if ($this->isAdminExist) {
+      $userId = $req->getBody()["id"];
+      $adminId = HttpSession::getAttribute(Constant::SESS_ADMIN_ID);
+      $user = $this->userServ->getUserById($userId, $adminId);
+
+      $resp->render(Constant::DIR_VIEW_USER_DETAIL, $user);
+    } else {
+      $resp->redirect(Constant::URL_LOGIN);
+    }
+  }
 
 }

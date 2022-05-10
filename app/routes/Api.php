@@ -1,13 +1,16 @@
 <?php
 
 use App\Routes\Router;
+use App\Utils\Constant;
+use App\Controllers\UserController;
 use Framework\Http\HttpRequest;
 use Framework\Http\HttpRespone;
-use App\Controllers\UserController;
 
-$req = new HttpRequest();
-$resp = new HttpRespone();
-$router = new Router($req);
+$req     = new HttpRequest();
+$resp    = new HttpRespone();
+$router  = new Router($req);
+
+$id = (array_key_exists('id', $_GET)) ? $_GET['id'] : null;
 
 $userController = new UserController();
 
@@ -27,6 +30,11 @@ $router->get('/manage_user/list-user', function() use (&$req, &$resp, &$userCont
   $userController->showListUser($req, $resp);
 });
 
-$router->get('/manage_user', function() use(&$resp) {
-  $resp->render('index.php');
+$router->get("/manage_user/detail", function() use (&$req, &$resp, &$userController) {
+  $userController->showUserDetail($req, $resp);
 });
+
+$router->get('/manage_user', function() use(&$resp) {
+  $resp->render(Constant::DIR_VIEW_HOME_PAGE);
+});
+
