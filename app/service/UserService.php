@@ -29,6 +29,6 @@ class UserService {
   }
 
   public function getUserById($userId, $adminId) {
-    return $this->userDao->getUserById($userId, $adminId);
+    return $this->userDao->getUserById($userId, $adminId)[0];
   }
 }

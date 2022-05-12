@@ -51,13 +51,19 @@ class UserController {
 
   public function showUserDetail($req, $resp) {
     if ($this->isAdminExist) {
-      $userId = $req->getBody()["id"];
+      $userId = (int) $req->getBody()["id"];
       $adminId = HttpSession::getAttribute(Constant::SESS_ADMIN_ID);
       $user = $this->userServ->getUserById($userId, $adminId);
 
       $resp->render(Constant::DIR_VIEW_USER_DETAIL, $user);
     } else {
       $resp->redirect(Constant::URL_LOGIN);
+    }
+  }
+
+  public function editUser($req, $resp) {
+    if ($this->isAdminExist) {
+      $resp->render(Constant::DIR_VIEW_EDIT_USER);
     }
   }
 

@@ -82,9 +82,9 @@ class UserDao extends BaseDao {
       QUERY;
 
       $param = array(
-        "adminId" => $adminId,
-        "user_id" => $userId,
-        "rule"    => Constant::RULE_USER
+        "rule"    => Constant::RULE_USER,
+        "userId"  => $userId,
+        "adminId" => $adminId
       );
 
       $statement = $conn->prepare($query);

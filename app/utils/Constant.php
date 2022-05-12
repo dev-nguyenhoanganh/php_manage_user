@@ -16,6 +16,7 @@ class Constant {
   public const DIR_VIEW_LIST_USER = 'user\listUser.phtml';
   public const DIR_VIEW_HOME_PAGE = 'index.phtml';
   public const DIR_VIEW_USER_DETAIL = 'user\detail.phtml';
+  public const DIR_VIEW_EDIT_USER   = 'user\edit.phtml';
   
   public const SESS_ADMIN_ID    = "adminId";
   public const SESS_ERROR_KEY   = "error";

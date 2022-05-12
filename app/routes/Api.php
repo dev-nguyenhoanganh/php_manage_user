@@ -34,6 +34,10 @@ $router->get("/manage_user/detail", function() use (&$req, &$resp, &$userControl
   $userController->showUserDetail($req, $resp);
 });
 
+$router->get("/manage_user/edit", function() use (&$req, &$resp, &$userController) {
+  $userController->editUser($req, $resp);
+});
+
 $router->get('/manage_user', function() use(&$resp) {
   $resp->render(Constant::DIR_VIEW_HOME_PAGE);
 });
